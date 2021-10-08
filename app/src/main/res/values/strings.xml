@@ -1,0 +1,72 @@
+<resources>
+    <string name="app_name">News App</string>
+    <string name="no_internet">Opps! No Internet Connection. </string>
+    <string name="no_news">No News Found!</string>
+
+    <!-- Dummy Values -->
+    <string name="news_section">Name of the Section</string>
+    <string name="news_title">Tile of the news that should be displayed on screen below image</string>
+    <string name="news_time">Time of the News</string>
+    <string name="news_date">News Date</string>
+
+
+    <!-- __________________________________
+                Preferences Name Label
+    ______________________________________-->
+    <string name="title_news_type_preference_label"> News Type</string>
+    <string name="title_order_by_preference_label">  Order By</string>
+    <string name="title_news_limit_preference_label">News Limit</string>
+
+    <!-- __________________________________
+                Preferences Name Key
+    ______________________________________-->
+    <string name="title_news_type_preference_key" translatable="false">news_type</string>
+    <string name="title_order_by_preference_key" translatable="false">order_by</string>
+    <string name="title_news_limit_preference_key" translatable="false">news_limit</string>
+
+    <!-- __________________________________
+             Default Preference Value
+    ______________________________________-->
+    <string name="default_news_type_value" translatable="false">@string/settings_news_type_local_value</string>
+    <string name="default_order_by_value" translatable="false">@string/settings_order_by_newest_value</string>
+    <string name="default_news_limit_value" translatable="false">25</string>
+
+
+<!-- _____________________________________________________________________________________________________________________________________________    -->
+
+
+    <!-- __________________________________
+        Labels Values or Original Values
+    ______________________________________-->
+    <string name="settings_news_type_local_label">Local News</string>
+    <string name="settings_news_type_science_label">Science and Technology News</string>
+    <string name="settings_news_type_international_label">International News</string>
+    <string name="settings_news_type_politics_label">Political News</string>
+    <string name="settings_news_type_crimes_label">Crimes and justice News</string>
+    <string name="settings_news_type_business_label">Business News</string>
+    <string name="settings_news_type_health_label">Health News</string>
+    <string name="settings_news_type_education_label">Education News</string>
+    <string name="settings_news_type_environment_label">Environmental News</string>
+    <string name="settings_news_type_sports_label">Sports</string>
+
+    <string name="settings_order_by_newest_label">Newest</string>
+    <string name="settings_order_by_oldest_label">Oldest</string>
+
+    <!-- __________________________________
+                   key Values
+    ______________________________________-->
+    <string name="settings_news_type_local_value" translatable="false">         india</string>
+    <string name="settings_news_type_science_value" translatable="false">       science</string>
+    <string name="settings_news_type_international_value" translatable="false"> international</string>
+    <string name="settings_news_type_politics_value" translatable="false">      political</string>
+    <string name="settings_news_type_crimes_value" translatable="false">        crimes and justice</string>
+    <string name="settings_news_type_business_value" translatable="false">      business</string>
+    <string name="settings_news_type_health_value" translatable="false">        health</string>
+    <string name="settings_news_type_education_value" translatable="false">     educational</string>
+    <string name="settings_news_type_environment_value" translatable="false">   environment</string>
+    <string name="settings_news_type_sports_value" translatable="false">        sports</string>
+
+    <string name="settings_order_by_newest_value" translatable="false">newest</string>
+    <string name="settings_order_by_oldest_value" translatable="false">oldest</string>
+
+</resources>

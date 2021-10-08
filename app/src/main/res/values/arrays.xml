@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="settings_news_type_labels">
+        <item>@string/settings_news_type_local_label</item>
+        <item>@string/settings_news_type_science_label</item>
+        <item>@string/settings_news_type_international_label</item>
+        <item>@string/settings_news_type_politics_label</item>
+        <item>@string/settings_news_type_crimes_label</item>
+        <item>@string/settings_news_type_business_label</item>
+        <item>@string/settings_news_type_health_label</item>
+        <item>@string/settings_news_type_education_label</item>
+        <item>@string/settings_news_type_environment_label</item>
+        <item>@string/settings_news_type_sports_label</item>
+    </string-array>
+
+    <string-array name="settings_order_by_labels">
+        <item>@string/settings_order_by_newest_label</item>
+        <item>@string/settings_order_by_oldest_label</item>
+    </string-array>
+
+
+    <string-array name="settings_news_types_value">
+        <item>@string/settings_news_type_local_value</item>
+        <item>@string/settings_news_type_science_value</item>
+        <item>@string/settings_news_type_international_value</item>
+        <item>@string/settings_news_type_politics_value</item>
+        <item>@string/settings_news_type_crimes_value</item>
+        <item>@string/settings_news_type_business_value</item>
+        <item>@string/settings_news_type_health_value</item>
+        <item>@string/settings_news_type_education_value</item>
+        <item>@string/settings_news_type_environment_value</item>
+        <item>@string/settings_news_type_sports_value</item>
+    </string-array>
+
+    <string-array name="settings_order_by_values">
+        <item>@string/default_order_by_value</item>
+        <item>@string/settings_order_by_oldest_value</item>
+    </string-array>
+</resources>

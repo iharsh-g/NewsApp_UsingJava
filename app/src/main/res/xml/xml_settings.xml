@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:title="News Settings">
+
+    <ListPreference
+        android:defaultValue="@string/default_news_type_value"
+        android:entries="@array/settings_news_type_labels"
+        android:entryValues="@array/settings_news_types_value"
+        android:icon="@drawable/icons8_feed"
+        android:key="@string/title_news_type_preference_key"
+        android:title="@string/title_news_type_preference_label"/>
+
+    <ListPreference
+        android:defaultValue="@string/default_order_by_value"
+
+        android:entries="@array/settings_order_by_labels"
+        android:entryValues="@array/settings_order_by_values"
+        android:icon="@drawable/order_by"
+        android:key="@string/title_order_by_preference_key"
+        android:title="@string/title_order_by_preference_label"/>
+
+    <EditTextPreference
+        android:defaultValue="@string/default_news_limit_value"
+        android:inputType="numberDecimal"
+        android:hint="digit value"
+        android:icon="@drawable/download"
+        android:key="@string/title_news_limit_preference_key"
+        android:title="@string/title_news_limit_preference_label" />
+
+</PreferenceScreen>
