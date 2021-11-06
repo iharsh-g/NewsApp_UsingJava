@@ -1,6 +1,5 @@
 package com.example.android.newsapp;
 
-import android.annotation.TargetApi;
 import android.app.LoaderManager;
 import android.content.Context;
 import android.content.Intent;
@@ -9,7 +8,6 @@ import android.content.SharedPreferences;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.net.Uri;
-import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
@@ -20,15 +18,15 @@ import android.widget.ListView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
-import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.annotation.NonNull;
 import androidx.preference.PreferenceManager;
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
+import com.facebook.shimmer.ShimmerFrameLayout;
+
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Objects;
 
 public class NewsActivity extends AppCompatActivity
         implements LoaderManager.LoaderCallbacks<List<News>>,
@@ -42,6 +40,8 @@ public class NewsActivity extends AppCompatActivity
 
     private SwipeRefreshLayout mSwipeRefreshLayout;
     private ProgressBar mProgressBar;
+    private ShimmerFrameLayout mShimmerFrameLayout;
+    ListView newsListView;
 
     String mNewsType;
     String mOrderBy;
@@ -52,8 +52,12 @@ public class NewsActivity extends AppCompatActivity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_news);
 
-        ListView newsListView = (ListView) findViewById(R.id.list);
-        mProgressBar = (ProgressBar) findViewById(R.id.loadingIndicator);
+        newsListView = (ListView) findViewById(R.id.list);
+        mShimmerFrameLayout = (ShimmerFrameLayout) findViewById(R.id.shimmer);
+        mShimmerFrameLayout.startShimmer();
+
+
+        //mProgressBar = (ProgressBar) findViewById(R.id.loadingIndicator);
         mAdapter = new NewsAdapter(this, new ArrayList<News>());
         newsListView.setAdapter(mAdapter);
 
@@ -82,7 +86,7 @@ public class NewsActivity extends AppCompatActivity
             }
         }
         else{
-            mProgressBar.setVisibility(View.GONE);
+            //mProgressBar.setVisibility(View.GONE);
             mEmptyTextView.setText(R.string.no_internet);
         }
 
@@ -109,7 +113,10 @@ public class NewsActivity extends AppCompatActivity
     @Override
     public Loader<List<News>> onCreateLoader(int id, Bundle args) {
         setUpSharedPreferences();
-        mProgressBar.setVisibility(View.VISIBLE);
+        //mProgressBar.setVisibility(View.VISIBLE);
+        newsListView.setVisibility(View.GONE);
+        mShimmerFrameLayout.setVisibility(View.VISIBLE);
+
         Uri baseUri = Uri.parse(URL);
         Uri.Builder uriBuilder = baseUri.buildUpon();
 
@@ -125,7 +132,11 @@ public class NewsActivity extends AppCompatActivity
     @Override
     public void onLoadFinished(@NonNull  Loader<List<News>> loader, List<News> news) {
         mSwipeRefreshLayout.setRefreshing(false);
-        mProgressBar.setVisibility(View.GONE);
+        //mProgressBar.setVisibility(View.GONE);
+        mShimmerFrameLayout.stopShimmer();
+        mShimmerFrameLayout.setVisibility(View.GONE);
+        newsListView.setVisibility(View.VISIBLE);
+
 
         mAdapter.clear();
         if(news != null && !news.isEmpty()){
