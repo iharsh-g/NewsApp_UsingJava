@@ -6,7 +6,7 @@ _by Harsh Goyal_
 
 In this android application you can search your latest news as according to your preferences. After that when you click on the news item it will redirect to the actual page of the news.
 
-Here are some screenshots of the applicatios that you can relate with them
+Here are some screenshots of the applications that you can relate with them
 
 **1. Main activity screen-**
 
