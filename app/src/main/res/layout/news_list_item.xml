@@ -2,7 +2,9 @@
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    app:cardCornerRadius="20dp">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -13,9 +15,6 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="8dp"
-            android:layout_marginTop="8dp"
-            android:layout_marginRight="8dp"
             android:background="#292828"
             android:orientation="vertical"
             android:paddingBottom="6dp">
@@ -31,20 +30,17 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
                 android:paddingTop="5dp">
 
                 <TextView
                     android:id="@+id/newsDate"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="4dp"
-                    android:layout_marginRight="4dp"
                     android:ellipsize="end"
                     android:maxLines="1"
-                    android:paddingLeft="4dp"
-                    android:paddingRight="4dp"
                     android:textColor="@android:color/darker_gray"
-                    android:textSize="14sp"
                     tools:text="@string/news_date" />
 
                 <TextView
@@ -53,12 +49,7 @@
                     android:layout_height="wrap_content"
                     android:layout_alignParentEnd="true"
                     android:layout_alignParentRight="true"
-                    android:layout_marginLeft="4dp"
-                    android:layout_marginRight="4dp"
-                    android:paddingLeft="4dp"
-                    android:paddingRight="4dp"
                     android:textColor="@android:color/darker_gray"
-                    android:textSize="14sp"
                     tools:text="@string/news_time" />
 
             </RelativeLayout>
@@ -67,33 +58,16 @@
                 android:id="@+id/newsTitle"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="4dp"
-                android:layout_marginRight="4dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginBottom="5dp"
                 android:ellipsize="end"
                 android:maxLines="2"
-                android:paddingLeft="4dp"
-                android:paddingRight="4dp"
                 android:textColor="#EDE5E5"
-                android:textSize="18sp"
+                android:textSize="16sp"
                 tools:text="@string/news_title" />
-
-
-            <TextView
-                android:id="@+id/sectionName"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="4dp"
-                android:layout_marginRight="4dp"
-                android:ellipsize="end"
-                android:maxLines="1"
-                android:paddingLeft="4dp"
-                android:paddingRight="4dp"
-                android:textColor="@android:color/darker_gray"
-                android:textSize="14sp"
-                tools:text="@string/news_section" />
-
         </LinearLayout>
 
     </LinearLayout>
-
 </androidx.cardview.widget.CardView>

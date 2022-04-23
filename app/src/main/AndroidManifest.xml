@@ -2,32 +2,35 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.android.newsapp">
 
-
-    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 
     <application
         android:allowBackup="true"
-        android:label="@string/app_name"
         android:icon="@mipmap/book_icon_4x_4x"
+        android:label="@string/app_name"
         android:roundIcon="@mipmap/book_icon_4x_4x"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
 
-        <activity android:name=".NewsActivity">
+        <activity
+            android:name=".SplashScreenActivity"
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
 
-        <activity android:name=".SettingsActivity"
+        <activity android:name=".NewsActivity"/>
+
+        <activity
+            android:name=".SettingsActivity"
             android:label="Settings">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.example.android.newsapp.SettingsActivity"/>
+                android:value="com.example.android.newsapp.SettingsActivity" />
         </activity>
-
     </application>
 
 </manifest>

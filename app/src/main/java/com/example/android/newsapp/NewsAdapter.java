@@ -11,13 +11,16 @@ import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
+import java.util.Locale;
+import java.util.TimeZone;
 
 public class NewsAdapter extends ArrayAdapter<News> {
     private final Context mContext;
-
-    private static final String DATE_SEPARATOR = "T";
-    private static final String TIME_SEPARATOR = "Z";
+    private TextView mDate, mTime;
 
     public NewsAdapter(Activity context, ArrayList<News> news) {
         super(context, 0, news);
@@ -31,47 +34,49 @@ public class NewsAdapter extends ArrayAdapter<News> {
             listItemView = LayoutInflater.from(getContext()).inflate(R.layout.news_list_item, parent, false);
         }
 
+        ImageView newsImage = listItemView.findViewById(R.id.newsImage);
+        TextView textViewTitle = listItemView.findViewById(R.id.newsTitle);
+        mDate = listItemView.findViewById(R.id.newsDate);
+        mTime = listItemView.findViewById(R.id.newsTime);
+
         News currentNews = getItem(position);
-
-        ImageView imageView = (ImageView) listItemView.findViewById(R.id.newsImage);
-
         Glide.with(mContext)
                 .load(currentNews.getUrlToImage())
                 .placeholder(R.drawable.backdrop_noimage)
-                .into(imageView);
+                .into(newsImage);
 
-        TextView textViewTitle = (TextView) listItemView.findViewById(R.id.newsTitle);
         textViewTitle.setText(currentNews.getTitle());
-
-        TextView textViewSectionName = (TextView) listItemView.findViewById(R.id.sectionName);
-        textViewSectionName.setText(currentNews.getAuthor());
-
-//        TextView textViewDate = (TextView) listItemView.findViewById(R.id.newsDate);
-//        textViewDate.setText(currentNews.getPublishedAt());
-
-        String publishedAt = currentNews.getPublishedAt();
-
-        String date = "";
-        String time = "";
-        String actualTime = "";
-
-        if(publishedAt.contains(DATE_SEPARATOR)){
-            String[] parts = publishedAt.split(DATE_SEPARATOR);
-            date = parts[0];
-            time = parts[1];
-        }
-
-        if(time.contains(TIME_SEPARATOR)){
-            String[] parts = time.split(TIME_SEPARATOR);
-            actualTime = parts[0];
-        }
-
-        TextView textViewDate = (TextView) listItemView.findViewById(R.id.newsDate);
-        textViewDate.setText(date);
-
-        TextView textViewTime = (TextView) listItemView.findViewById(R.id.newsTime);
-        textViewTime.setText(actualTime);
+        setDateAndTime(currentNews.getPublishedAt());
 
         return listItemView;
+    }
+
+    private void setDateAndTime(String publishedAt) {
+        SimpleDateFormat readDate = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss'Z'", Locale.US);
+        readDate.setTimeZone(TimeZone.getTimeZone("GMT"));
+
+        Date date = null;
+        try {
+            date = readDate.parse(publishedAt);
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+
+        SimpleDateFormat writeDate = new SimpleDateFormat("dd MMM, yyyy 'T' hh:mm aa", Locale.US);
+        writeDate.setTimeZone(TimeZone.getTimeZone("GMT+05:30"));
+
+        publishedAt = writeDate.format(date);
+
+        String actualDate = "";
+        String actualTime = "";
+
+        if (publishedAt.contains(" T ")) {
+            String[] parts = publishedAt.split(" T ");
+            actualDate = parts[0];
+            actualTime = parts[1];
+        }
+
+        mDate.setText(actualDate);
+        mTime.setText(actualTime);
     }
 }
